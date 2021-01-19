@@ -1,0 +1,89 @@
+<!-- <div class="container ">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Sr.No</th>
+                <th scope="col">Order No</th>
+                <th scope="col">Customer Name</th>
+                <th scope="col">Offer</th>
+                <th scope="col">Discount</th>
+                <th scope="col">Vehicle No</th>
+                <th scope="col">Amount</th>
+                <th>Active</th>
+                <th>Actions</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let order of orders; let index=index">
+                <td>{{index+1}}</td>
+                <td>{{order['Order No']}}</td>
+                <td class="text-info" routerLink="/customer">
+                    {{order['Customer Name']}}</td>
+                <td>{{order['Offer']}} </td>
+                <td>{{order['Discount']}} </td>
+                <td>{{order['Vehicle No']}} </td>
+                <td>{{order['Amount']}} </td>
+                <td>{{order['active']}}</td>
+                <td>
+                    <button (click)="toggleActive(order)" [class.btn-success]="order['active'] != 1"
+                        [class.btn-danger]="order['active'] == 1"
+                        class="btn btn-sm">{{order['active'] == 1 ? 'Ready' : 'Activate'}}</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</div> -->
+
+
+
+
+
+<div class="container">
+    <div class="row">
+
+        <div>
+            <div class="card">
+                <div class="card-body">
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Sr.No</th>
+                                <th scope="col">Order No</th>
+                                <th scope="col">Customer Name</th>
+                                <th scope="col">Offer</th>
+                                <th scope="col">Discount</th>
+                                <th scope="col">Vehicle No</th>
+                                <th scope="col">Amount</th>
+                                <th>Active</th>
+                                <th>Actions</th>
+                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let order of orders; let index=index">
+                                <td>{{index+1}}</td>
+                                <td>{{order['Order No']}}</td>
+                                <td class="text-info" routerLink="/customer">
+                                    {{order['Customer Name']}}</td>
+                                <td>{{order['Offer']}} </td>
+                                <td>{{order['Discount']}} </td>
+                                <td>{{order['Vehicle No']}} </td>
+                                <td>{{order['Amount']}} </td>
+                                <td>{{order['active']}}</td>
+                                <td>
+                                    <button (click)="toggleActive(order)" [class.btn-success]="order['active'] != 1"
+                                        [class.btn-danger]="order['active'] == 1"
+                                        class="btn btn-sm">{{order['active'] == 1 ? 'Ready' : 'Activate'}}</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

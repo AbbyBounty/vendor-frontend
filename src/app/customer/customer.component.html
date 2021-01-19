@@ -1,0 +1,31 @@
+<div class="container md-col-4">
+
+    
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Sr.No</th>
+                <th scope="col">Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Email</th>
+                <th scope="col">Contact No</th>
+                <th scope="col">History</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let customer of customers; let index=index">
+                <td>{{index+1}}</td>
+                <td>{{customer['Name']}}</td>
+                <td>{{customer['Address']}}</td>
+                <td>{{customer['Email']}} </td>
+                <td>{{customer['Contact No']}} </td>
+                <td>
+                     <button (click)="viewHistory(customer)" style="margin-left: 10px;" class="btn btn-warning btn-sm">History</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
