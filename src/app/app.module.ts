@@ -21,7 +21,7 @@ import { OfferListComponent } from './offer/offer-list/offer-list.component';
 import { OrderListComponent } from './order/order-list/order-list.component';
 import { CustomerComponent } from './customer/customer.component';
 import { OrderHistoryComponent } from './order/order-history/order-history.component';
-
+import { HttpClientModule }from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -39,6 +39,7 @@ import { OrderHistoryComponent } from './order/order-history/order-history.compo
   ],
   imports: [
     BrowserAnimationsModule,
+    HttpClientModule,
     RouterModule.forRoot(AppRoutes,{
       useHash: true
     }),
