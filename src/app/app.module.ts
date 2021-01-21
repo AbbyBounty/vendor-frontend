@@ -2,6 +2,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from "ngx-toastr";
+import { FormsModule } from '@angular/forms';
 
 import { SidebarModule } from './sidebar/sidebar.module';
 import { FooterModule } from './shared/footer/footer.module';
@@ -23,7 +24,8 @@ import { CustomerComponent } from './customer/customer.component';
 import { OrderHistoryComponent } from './order/order-history/order-history.component';
 import { LoginComponent } from './login/login.component';
 
-import { HttpClientModule }from '@angular/common/http'
+import { HttpClientModule }from '@angular/common/http';
+import { RegisterComponent } from './register/register.component'
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { HttpClientModule }from '@angular/common/http'
     OrderListComponent,
     CustomerComponent,
     OrderHistoryComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -50,7 +53,9 @@ import { HttpClientModule }from '@angular/common/http'
     NavbarModule,
     ToastrModule.forRoot(),
     FooterModule,
-    FixedPluginModule
+    FixedPluginModule,
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -39,10 +39,10 @@ export class LoginComponent implements OnInit {
       else
         {
           sessionStorage['login_status'] = '1';
-            sessionStorage.setItem('firstname', result['u_first_name']);
-            sessionStorage.setItem('id', result['u_id']);
+            sessionStorage.setItem('firstname', result['ven_first_name']);
+            sessionStorage.setItem('id', result['ven_id']);
             sessionStorage.setItem('flag','true');
-            console.log("userid"+sessionStorage.getItem('id'))
+            console.log("vendor"+sessionStorage.getItem('id'))
 
           
 
