@@ -55,12 +55,11 @@ export class ServiceService {
       //  token: sessionStorage['token']
      })
    };
-
+   
    const body = {
     stv_id:stv_id,
     stv_name: stv_name,
     stv_price: stv_price,
-    
    }
    
    return this.httpClient.put(this.url , body, httpOptions)
