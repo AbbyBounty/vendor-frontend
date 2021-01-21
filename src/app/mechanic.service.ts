@@ -66,7 +66,7 @@ export class MechanicService {
       
      }
      
-     return this.httpClient.put(this.url , body, httpOptions)
+     return this.httpClient.put(this.url+"/"+ mech_id, body, httpOptions)
   }
   
   insertMechanic(mech_first_name: string, mech_last_name: string, mech_mobile: string) {

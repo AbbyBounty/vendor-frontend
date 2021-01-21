@@ -63,7 +63,7 @@ export class ServiceService {
     
    }
    
-   return this.httpClient.put(this.url , body, httpOptions)
+   return this.httpClient.put(this.url+"/"+stv_id , body, httpOptions)
  }
 
  insertService(stv_name: string, stv_price: number) {

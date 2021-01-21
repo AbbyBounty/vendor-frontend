@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ServiceAddComponent implements OnInit {
 
-  service = null;
+  service = null
   
   stv_name = " "
   stv_price = null
@@ -21,7 +21,7 @@ export class ServiceAddComponent implements OnInit {
   ngOnInit(): void {
 
     
-    let id = this.activatedRoute.snapshot.queryParams['id']
+    let id = this.activatedRoute.snapshot.queryParams['stv_id']
     this.id=id
       console.log(id+'id')
       
@@ -31,7 +31,7 @@ export class ServiceAddComponent implements OnInit {
           .getServiceDetails(id)
           .subscribe(response => {
              if (response) {
-           
+              
             this.stv_name=response['stv_name']
             this.stv_price=response['stv_price']
           
