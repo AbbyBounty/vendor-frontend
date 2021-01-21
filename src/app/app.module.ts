@@ -23,6 +23,7 @@ import { CustomerComponent } from './customer/customer.component';
 import { OrderHistoryComponent } from './order/order-history/order-history.component';
 import { LoginComponent } from './login/login.component';
 
+import { HttpClientModule }from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     BrowserAnimationsModule,
+    HttpClientModule,
     RouterModule.forRoot(AppRoutes,{
       useHash: true
     }),

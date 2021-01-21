@@ -15,6 +15,7 @@ import { ServiceAddComponent } from 'app/service/service-add/service-add.compone
 import { OrderListComponent } from 'app/order/order-list/order-list.component';
 import { CustomerComponent } from 'app/customer/customer.component';
 import { OrderHistoryComponent } from 'app/order/order-history/order-history.component';
+import { MechanicListComponent } from 'app/mechanic/mechanic-list/mechanic-list.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -31,5 +32,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'offers',        component: OfferListComponent },
     { path: 'order-list',        component: OrderListComponent },
     { path: 'customer',        component: CustomerComponent },
-    { path: 'order-history',        component: OrderHistoryComponent },
+    { path: 'order-history', component: OrderHistoryComponent },
+    { path: 'mechanics',component: MechanicListComponent },
 ];
