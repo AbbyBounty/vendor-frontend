@@ -12,8 +12,8 @@ export class ServiceAddComponent implements OnInit {
 
   service = null;
   
-  stv_name = 0
-  stv_price = " "
+  stv_name = " "
+  stv_price = null
 
   id=null
   constructor(private activatedRoute: ActivatedRoute,private router: Router, private serviceService:ServiceService,private toastr: ToastrService) { }

@@ -8,14 +8,14 @@ export class ServiceService {
   httpClient:HttpClient
   
 
-  url = `http://localhost:8080/vendor/service`
+  url = `http://localhost:8080/vendor/services`
   
   constructor(httpClient: HttpClient) { 
     this.httpClient=httpClient
   }
   getServices(){
-    const userid=sessionStorage.getItem('id')
-
+   // const userid=sessionStorage.getItem('id')
+      const userid=1
 
     return this.httpClient.get('http://localhost:8080/user/servicesByUserid/'+userid)
     
@@ -46,10 +46,10 @@ export class ServiceService {
    return this.httpClient.delete('http://localhost:8080/vendor/service' + "/"+id, httpOptions)
   }
 
-  updateVehicle(v_id:number,v_company_name: string, v_model: string, v_regNo: string) {
+  updateService(stv_id:number,stv_name: string, stv_price:number) {
     // add the token in the request header
 
-    console.log(v_id+"vehicle id")
+    console.log(stv_id+"Service id")
     const httpOptions = {
      headers: new HttpHeaders({
       //  token: sessionStorage['token']
@@ -57,17 +57,16 @@ export class ServiceService {
    };
 
    const body = {
-    v_id:v_id,
-    v_company_name: v_company_name,
-    v_model: v_model,
-    v_regNo: v_regNo,
+    stv_id:stv_id,
+    stv_name: stv_name,
+    stv_price: stv_price,
     
    }
    
    return this.httpClient.put(this.url , body, httpOptions)
  }
 
- insertVehicle(v_company_name: string, v_model: string, v_regNo: string) {
+ insertService(stv_name: string, stv_price: number) {
    // add the token in the request header
    const httpOptions = {
     headers: new HttpHeaders({
@@ -75,19 +74,17 @@ export class ServiceService {
     })
   };
 
-  const u_id=sessionStorage.getItem('id')
+  const ven_id=sessionStorage.getItem('id')
 
   const body = {
-    v_company_name: v_company_name,
-    v_model: v_model,
-    v_regNo: v_regNo,
-    v_user:{
-      u_id:u_id
+    stv_name: stv_name,
+    stv_price: stv_price,
+    stv_vendor:{
+      ven_id:ven_id
     }
   }
 
-  console.log("userid "+u_id)
-  
+  console.log("userid "+ven_id)
   return this.httpClient.post(this.url + "/create", body, httpOptions)
 }
 
