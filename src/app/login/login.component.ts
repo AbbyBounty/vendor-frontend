@@ -41,6 +41,8 @@ export class LoginComponent implements OnInit {
           sessionStorage['login_status'] = '1';
             sessionStorage.setItem('firstname', result['ven_first_name']);
             sessionStorage.setItem('id', result['ven_id']);
+            sessionStorage.setItem('shopName', result['ven_shop_name']);
+            sessionStorage.setItem('proof', result['ven_proof']);
             sessionStorage.setItem('flag','true');
             console.log("vendor"+sessionStorage.getItem('id'))
 
