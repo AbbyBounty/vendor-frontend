@@ -21,6 +21,7 @@ import { OfferListComponent } from './offer/offer-list/offer-list.component';
 import { OrderListComponent } from './order/order-list/order-list.component';
 import { CustomerComponent } from './customer/customer.component';
 import { OrderHistoryComponent } from './order/order-history/order-history.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { OrderHistoryComponent } from './order/order-history/order-history.compo
     OfferListComponent,
     OrderListComponent,
     CustomerComponent,
-    OrderHistoryComponent
+    OrderHistoryComponent,
+    LoginComponent
   ],
   imports: [
     BrowserAnimationsModule,
