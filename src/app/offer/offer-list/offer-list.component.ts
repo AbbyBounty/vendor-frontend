@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class OfferListComponent implements OnInit {
 
-  offer:any = JSON.parse(sessionStorage.getItem('offer'));
+ // offer:any = JSON.parse(sessionStorage.getItem('offer'));
   offers :any =[]
   /*offers =[
 
@@ -38,7 +38,7 @@ export class OfferListComponent implements OnInit {
 
 
   onEdit(offer) {
-    this.router.navigate(['/offer-add'], {queryParams: {id: offer['id']}})
+    this.router.navigate(['/offer-add'], {queryParams: {id: offer['ofr_id']}})
   }
 addoffer() {
     this.router.navigate(['/offer-add'])

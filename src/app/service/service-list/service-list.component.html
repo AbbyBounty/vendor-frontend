@@ -20,7 +20,7 @@
                 <td>{{service.stv_price}}</td>
                 <td>
                     <button (click)="onEdit(service)" style="margin-left: 10px;" class="btn btn-warning btn-sm">Edit</button>
-                    <button style="margin-left: 10px;" class="btn btn-danger btn-sm">Delete</button>
+                    <button (click)="onDelete(service)" style="margin-left: 10px;" class="btn btn-danger btn-sm">Delete</button>
                 </td>
             </tr>
         </tbody>

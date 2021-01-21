@@ -17,7 +17,7 @@ export class OfferService {
     const userid=sessionStorage.getItem('id')
 
 
-    return this.httpClient.get('http://localhost:8080/user/vehiclesByUserid/'+userid)
+    return this.httpClient.get('http://localhost:8080/vendor/offerByUserid/'+userid)
     
   }
 
@@ -75,15 +75,15 @@ export class OfferService {
        // token: sessionStorage['token']
      })
     };
-    const ofr_id=sessionStorage.getItem('id')
+    const ven_id=sessionStorage.getItem('id')
 
   const body = {
     ofr_name: ofr_name,
     ofr_code: ofr_code,
     ofr_discount: ofr_discount,
     ofr_validity:ofr_validity,
-    v_offer:{
-      ofr_id:ofr_id
+    ofr_vendor:{
+      ven_id:ven_id
     }
   }
   

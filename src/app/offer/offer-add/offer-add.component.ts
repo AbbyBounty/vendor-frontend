@@ -83,7 +83,7 @@ export class OfferAddComponent implements OnInit {
          .subscribe(response => {
           
           this.toastr.success(this.ofr_name+' offer added succesfully ')
-             this.router.navigate(['/offer'])
+             this.router.navigate(['/offers'])
            // }
          })
      }

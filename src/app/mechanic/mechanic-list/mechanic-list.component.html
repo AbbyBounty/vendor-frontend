@@ -1,7 +1,7 @@
 <div class="col-md-12">
     <div class="card">
         <div class="card-header">
-            <button (click)="addvehicle()" class="btn btn-success btn-sm float-right">Add</button>
+            <button (click)="addmechanic()" class="btn btn-success btn-sm float-right">Add</button>
             <h4 class="card-title"> My mechanics</h4>
         </div>
         <div class="card-body">
@@ -26,7 +26,7 @@
 
                             <td>
                                 <button (click)="onEdit(mechanic)" style="margin-left: 10px;" class="btn btn-warning btn-sm">Edit</button>
-                                <button style="margin-left: 10px;" class="btn btn-danger btn-sm">Delete</button>
+                                <button (click)="onDelete(mechanic)" style="margin-left: 10px;" class="btn btn-danger btn-sm">Delete</button>
                             </td>
 
                         </tr>

@@ -69,7 +69,7 @@ export class MechanicAddComponent implements OnInit {
             progressAnimation:'decreasing',
             titleClass:'toast-title'
           })
-           this.router.navigate(['/mechanic'])
+           this.router.navigate(['/mechanics'])
          // }
        })
    } else {
@@ -79,7 +79,7 @@ export class MechanicAddComponent implements OnInit {
        .subscribe(response => {
          // if (response['status'] == 'success') {
           this.toastr.success(this.mech_first_name+' mechanic added succesfully ')
-           this.router.navigate(['/mechanic'])
+           this.router.navigate(['/mechanics'])
          // }
        })
    }

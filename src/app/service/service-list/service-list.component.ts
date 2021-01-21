@@ -29,8 +29,6 @@ export class ServiceListComponent implements OnInit {
   loadServices(){
 
     this.serviceservice.getServices().subscribe(res=>{
-         
-   
        
               this.services=res
              // console.warn(res)
@@ -41,12 +39,12 @@ export class ServiceListComponent implements OnInit {
      
    }
 
-   onDelete(vehicle, index) {
-    const result = confirm(`Are you sure you want to delete vehicle: ${vehicle['v_company_name']}?`)
+   onDelete(service, index) {
+    const result = confirm(`Are you sure you want to delete service: ${service['stv_name']}?`)
     if (result) {
       
-      this.serviceservice.deleteService(vehicle['v_id']).subscribe(res=>{
-        this.toastr.error(' deleted succesfully ','vehicle',{
+      this.serviceservice.deleteService(service['stv_id']).subscribe(res=>{
+        this.toastr.error(' deleted succesfully ','service',{
           positionClass:'toast-top-left',
           closeButton:true,
           progressAnimation:'decreasing',
@@ -58,12 +56,12 @@ export class ServiceListComponent implements OnInit {
   
   })
   
-  
+
     }
   }
 
   onEdit(service) {
-    this.router.navigate(['/service-add'], {queryParams: {id: service['stv_id']}})
+    this.router.navigate(['/service-add'], {queryParams: {stv_id: service['stv_id']}})
   }
 addservice() {
     this.router.navigate(['/service-add'])

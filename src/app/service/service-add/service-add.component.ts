@@ -70,7 +70,7 @@ onUpdate(){
             titleClass:'toast-title'
           })
 
-           this.router.navigate(['/service'])
+           this.router.navigate(['/services'])
          // }
        })
    } else {
@@ -79,16 +79,9 @@ onUpdate(){
        .insertService(this.stv_name,this.stv_price)
        .subscribe(response => {
          // if (response['status'] == 'success') {
-           const service = JSON.parse(localStorage.getItem('service'));
-           console.log(service.v_mechanics)
-           console.log(JSON.stringify(service))
-           localStorage.setItem('service',JSON.stringify(service))
-           // console.log(localStorage.getItem('vehicle'))
-
-           // localStorage.setItem('vehicle',)
           
            this.toastr.success(this.stv_name+' service added succesfully ')
-         this.router.navigate(['/service'])
+         this.router.navigate(['/services'])
          // }
        })
    }

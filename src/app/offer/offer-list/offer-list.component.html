@@ -39,9 +39,12 @@
 
 <div class="container">
     <div class="row">
-
         <div>
             <div class="card">
+                <div class="card-header">
+                    <button (click)="addoffer()" class="btn btn-success btn-sm float-right">Add</button>
+
+                </div>
                 <div class="card-body">
 
                     <table class="table ">
@@ -65,7 +68,7 @@
                                 <td>{{offer.ofr_validity}} </td>
                                 <td>
                                     <button (click)="onEdit(offer)" style="margin-left: 10px;" class="btn btn-warning btn-sm">Edit</button>
-                                    <button style="margin-left: 10px;" class="btn btn-danger btn-sm">Delete</button>
+                                    <button (click)="onDelete(offer)" style="margin-left: 10px;" class="btn btn-danger btn-sm">Delete</button>
                                 </td>
                             </tr>
                         </tbody>

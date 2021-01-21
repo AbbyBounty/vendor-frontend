@@ -17,7 +17,7 @@ export class ServiceService {
    // const userid=sessionStorage.getItem('id')
       const userid=1
 
-    return this.httpClient.get('http://localhost:8080/user/servicesByUserid/'+userid)
+    return this.httpClient.get('http://localhost:8080/vendor/servicesByUserid/'+userid)
     
   }
   getServiceDetails(id) {
@@ -43,7 +43,7 @@ export class ServiceService {
    };
   console.log(this.url+"/"+id)
 
-   return this.httpClient.delete('http://localhost:8080/vendor/service' + "/"+id, httpOptions)
+   return this.httpClient.delete('http://localhost:8080/vendor/services' + "/"+id, httpOptions)
   }
 
   updateService(stv_id:number,stv_name: string, stv_price:number) {

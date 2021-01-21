@@ -18,7 +18,7 @@ export class MechanicService {
     const vendorid=sessionStorage.getItem('id')
 
 
-    return this.httpClient.get('http://localhost:8080/user/mechanicByVendorid/'+vendorid)
+    return this.httpClient.get('http://localhost:8080/vendor/mechanicByUserid/'+vendorid)
     
   }
   getMechanicDetails(id) {
@@ -76,14 +76,14 @@ export class MechanicService {
        // token: sessionStorage['token']
      })
     };
-    const mech_id=sessionStorage.getItem('id')
+    const ven_id=sessionStorage.getItem('id')
 
   const body = {
     mech_first_name: mech_first_name,
     mech_last_name: mech_last_name,
     mech_mobile: mech_mobile,
-    v_mechanic:{
-      mech_id:mech_id
+    mech_vendor:{
+      ven_id:ven_id
     }
   }
   
