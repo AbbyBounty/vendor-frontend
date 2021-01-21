@@ -41,9 +41,10 @@ export class MechanicListComponent implements OnInit {
   
   addmechanic()
 {
-
 this.router.navigate(['/mechanic-add'])
-}
+  }
+  
+   
 onDelete(mechanic, index) {
   const result = confirm(`Are you sure you want to delete vehicle: ${mechanic['mech_first_name']}?`)
   if (result) {
