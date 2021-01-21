@@ -1,3 +1,6 @@
+import { RegisterService } from './../register.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  vendor = {
+   "ven_first_name":"",
+      "ven_last_name":"",
+      "ven_email":"",
+      "ven_mobile":"",
+      "ven_address":"",
+      "ven_password":"",		
+      "ven_proof":"",			
+      "ven_shop_name":""
+  }
+
+  
+  constructor(private router: Router,private registerComponent:RegisterService,private toastr: ToastrService) { }
 
   ngOnInit(): void {
+  }
+
+  onSignup(){
+    let observableResult = this.registerComponent.register(this.vendor);
+    observableResult.subscribe((result: any) => {
+
+      this.toastr.success(' Registration Succesfully  Please Login ..','',{
+        positionClass:'toast-top-left',
+        closeButton:true,
+        progressAnimation:'decreasing',
+        titleClass:'toast-title'
+      })
+      this.router.navigate(['/login']);
+    });
+
+  }
+  onCancel(){
+    this.router.navigate(['/login']);
   }
 
 }
