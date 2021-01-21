@@ -1,3 +1,4 @@
+import { MechanicListComponent } from './../../mechanic/mechanic-list/mechanic-list.component';
 import { OfferAddComponent } from './../../offer/offer-add/offer-add.component';
 import { Routes } from '@angular/router';
 
@@ -32,4 +33,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'order-list',        component: OrderListComponent },
     { path: 'customer',        component: CustomerComponent },
     { path: 'order-history',        component: OrderHistoryComponent },
+    { path: 'mechanics',        component: MechanicListComponent },
 ];
