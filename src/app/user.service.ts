@@ -7,47 +7,40 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
-  url='http://localhost:8080/vendor/profile'
-  constructor(private router: Router,
+  url = 'http://localhost:3000/vendor'
+
+  constructor(
     private httpClient: HttpClient) { }
 
-    getUser(){
-      const userid=sessionStorage.getItem('id')
+    login(email: string, password: string) {
+      const body = {
+        ven_email: email,
+        ven_password: password
+      }
   
-  
-      return this.httpClient.get(this.url+"/"+userid)
-      
+      return this.httpClient.post(this.url + '/signin', body)
     }
 
-    updateUser(ven_first_name:string,ven_last_name:string,ven_email:string,ven_mobile:string, ven_address:string){
-      const vendorid=sessionStorage.getItem('id')
-      const ven_shop_name=sessionStorage.getItem('shopName')
-      const ven_proof=sessionStorage.getItem('proof')
+  getUsers() {
+    // add the token in the request header
+    const httpOptions = {
+      headers: new HttpHeaders({
+        token: sessionStorage['token']
+      })
+    };
     
-      const httpOptions = {
-       headers: new HttpHeaders({
-        //  token: sessionStorage['token']
-       })
-     };
-
+    return this.httpClient.get(this.url, httpOptions)
+  }
 
   
-     const body = {
-       ven_id:vendorid,
-      ven_first_name:ven_first_name,
-      ven_last_name:ven_last_name,
-      ven_email:ven_email,
-      ven_mobile:ven_mobile,
-      ven_address:ven_address,
-      ven_shop_name:ven_shop_name,
-      ven_proof:ven_proof
 
-      
-     }
-     
-     return this.httpClient.put(this.url+"/"+ vendorid , body, httpOptions)
+  getUser(){
+    return this.httpClient.get(this.url)
+  }
 
+  updateUser(){
+    return this.httpClient.get(this.url)
 
-    }
+  }
 
 }

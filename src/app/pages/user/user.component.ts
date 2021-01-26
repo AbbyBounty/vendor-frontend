@@ -41,42 +41,42 @@ export class UserComponent implements OnInit{
     }
 
 
-    onUpdate(){
+  //   onUpdate(){
         
         
-   console.log(this.user['ven_first_name'])
+  //  console.log(this.user['ven_first_name'])
    
-      // edit
+  //     // edit
   
-      this.userService
-        .updateUser(this.user['ven_first_name'], this.user['ven_last_name'],this.user['ven_email'],this.user['ven_mobile'], this.user['ven_address'])
-        .subscribe(response => {
+  //     this.userService
+  //       .updateUser(this.user['ven_first_name'], this.user['ven_last_name'],this.user['ven_email'],this.user['ven_mobile'], this.user['ven_address'])
+  //       .subscribe(response => {
          
-   console.log(this.user['ven_first_name'])
-          console.log(this.ven_first_name)
-          this.ven_first_name=this.user['ven_first_name']
-          this.ven_last_name=this.user['ven_last_name']
-          this.ven_email=this.user['ven_email']
-          this.ven_mobile=this.user['ven_mobile']
-          this.ven_address=this.user['ven_address']
+  //  console.log(this.user['ven_first_name'])
+  //         console.log(this.ven_first_name)
+  //         this.ven_first_name=this.user['ven_first_name']
+  //         this.ven_last_name=this.user['ven_last_name']
+  //         this.ven_email=this.user['ven_email']
+  //         this.ven_mobile=this.user['ven_mobile']
+  //         this.ven_address=this.user['ven_address']
          
 
-        //   console.log(this.vehicle['v_id']+vhicle id update)
+  //       //   console.log(this.vehicle['v_id']+vhicle id update)
 
-          // if (response['status'] == 'success') {
+  //         // if (response['status'] == 'success') {
            
          
              
-            this.router.navigate(['/user'])
-          // }
-        })
-        this.toastr.success(' updated succesfully ','user',{
-            positionClass:'toast-top-left',
-            closeButton:true,
-            progressAnimation:'decreasing',
-            titleClass:'toast-title'
-          })
+  //           this.router.navigate(['/user'])
+  //         // }
+  //       })
+  //       this.toastr.success(' updated succesfully ','user',{
+  //           positionClass:'toast-top-left',
+  //           closeButton:true,
+  //           progressAnimation:'decreasing',
+  //           titleClass:'toast-title'
+  //         })
      
-        console.log(`update profile`)
-    }
+  //       console.log(`update profile`)
+  //   }
 }

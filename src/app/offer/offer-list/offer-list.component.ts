@@ -1,64 +1,61 @@
+import { OfferService } from 'app/offer.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { OfferService } from 'app/offer.service';
+
 import { ToastrService } from 'ngx-toastr';
+
 @Component({
-  selector: 'app-offer-list',
+  selector: 'app-Offer-list',
   templateUrl: './offer-list.component.html',
   styleUrls: ['./offer-list.component.css']
 })
 export class OfferListComponent implements OnInit {
+  Offers: any = []
+  constructor(private router: Router, private OfferService: OfferService, private toastr: ToastrService) { }
 
- // offer:any = JSON.parse(sessionStorage.getItem('offer'));
-  offers :any =[]
-  /*offers =[
-
-    { "id":1	,"Offer Name":"SUMMER SPECIAL",	"Discount":12,"Validity":"23/01/2020"},
-    { "id":2	,"Offer Name":"MANSOON OFFER",	"Discount":10,"Validity":"23/01/2020"},
-    { "id":3	,"Offer Name":"DIWALI DHAMAKA",	"Discount":50,"Validity":"23/01/2020"},
-    { "id":4	,"Offer Name":"SEASON END",	"Discount":5,"Validity":"23/01/2020"}
- 
-   ];*/
-   constructor( private router: Router, private offerService:OfferService, private toastr: ToastrService ) {
-  }
   ngOnInit(): void {
-    
-    this.loadOffer()
-    console.log(  sessionStorage.getItem('id'))
+    this.loadOffers()
   }
 
-  loadOffer(){
 
-    this.offerService.getOffer().subscribe(res=>{
 
-              this.offers=res
-       })
-     
-   }
-
+  loadOffers() {
+    this.OfferService
+      .getOffers()
+      .subscribe(response => {
+        if (response['status'] == 'success') {
+          this.Offers = response['data']
+          console.log(this.Offers)
+        } else {
+          console.log(response['error'])
+        }
+      })
+  }
 
   onEdit(offer) {
-    this.router.navigate(['/offer-add'], {queryParams: {id: offer['ofr_id']}})
+  
+    this.router.navigate(['/offer-add'], { queryParams: { id: offer['ofr_id'] } })
+
   }
-addoffer() {
+
+  addOffer() {
     this.router.navigate(['/offer-add'])
   }
+
+
   onDelete(offer, index) {
-    const result = confirm(`Are you sure you want to delete Offer: ${offer['ofr_name']}?`)
+    const result = confirm(`Are you sure you want to delete vehicle: ${offer['ofr_name']}?`)
     if (result) {
-      
-      this.offerService.deleteOffer(offer['ofr_id']).subscribe(res=>{
-        this.toastr.error(' deleted succesfully ','offer',{
-          positionClass:'toast-top-left',
-          closeButton:true,
-          progressAnimation:'decreasing',
-          titleClass:'toast-title'
+
+      this.OfferService.deleteOffer(offer['ofr_id']).subscribe(res => {
+        this.toastr.error(' deleted succesfully ', 'Offer', {
+          positionClass: 'toast-top-left',
+          closeButton: true,
+          progressAnimation: 'decreasing',
+          titleClass: 'toast-title'
         })
-  
-        this.loadOffer()
-   
-  
-  })
+        this.loadOffers()
+      })
     }
   }
 }

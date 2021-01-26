@@ -5,86 +5,95 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ServiceService {
-  httpClient:HttpClient
+  httpClient: HttpClient
+
+
+  url = `http://localhost:3000/services`
+
+  constructor(httpClient: HttpClient) {
+    this.httpClient = httpClient
+  }
+
+  getservices() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        token: sessionStorage['token']
+      })
+    };
+
+    return this.httpClient.get(this.url, httpOptions)
+
+  }
+
+
+  getserviceDetails(id) {
+    // add the token in the request header
+    const httpOptions = {
+      headers: new HttpHeaders({
+        token: sessionStorage['token']
+
+      })
+    };
+
+
+    return this.httpClient.get(this.url + "/details/" + id, httpOptions)
+  }
+
+
   
-
-  url = `http://localhost:8080/vendor/services`
-  
-  constructor(httpClient: HttpClient) { 
-    this.httpClient=httpClient
-  }
-  getServices(){
-   // const userid=sessionStorage.getItem('id')
-      const userid=1
-
-    return this.httpClient.get('http://localhost:8080/vendor/servicesByUserid/'+userid)
-    
-  }
-  getServiceDetails(id) {
+  deleteservice(id) {
     // add the token in the request header
     const httpOptions = {
-     headers: new HttpHeaders({
-      //  token: sessionStorage['token']
+      headers: new HttpHeaders({
+        token: sessionStorage['token']
 
-     })
-   };
-  console.log(this.url+"/"+id)
+      })
+    };
+    console.log(this.url + "/" + id)
 
-   return this.httpClient.get(this.url  + "/"+id, httpOptions)
+    return this.httpClient.delete(this.url + "/" + id, httpOptions)
   }
 
-  deleteService(id) {
-    // add the token in the request header
-    const httpOptions = {
-     headers: new HttpHeaders({
-      //  token: sessionStorage['token']
 
-     })
-   };
-  console.log(this.url+"/"+id)
 
-   return this.httpClient.delete('http://localhost:8080/vendor/services' + "/"+id, httpOptions)
-  }
-
-  updateService(stv_id:number,stv_name: string, stv_price:number) {
+  updateservice(id:number, stv_name:string, stv_price:string) {
     // add the token in the request header
 
-    console.log(stv_id+"Service id")
+    console.log(id + "service id")
     const httpOptions = {
-     headers: new HttpHeaders({
-      //  token: sessionStorage['token']
-     })
-   };
-   
-   const body = {
-    stv_id:stv_id,
-    stv_name: stv_name,
-    stv_price: stv_price,
-   }
-   
-   return this.httpClient.put(this.url+"/"+stv_id , body, httpOptions)
- }
+      headers: new HttpHeaders({
+        token: sessionStorage['token']
+      })
+    };
 
- insertService(stv_name: string, stv_price: number) {
-   // add the token in the request header
-   const httpOptions = {
-    headers: new HttpHeaders({
-      // token: sessionStorage['token']
-    })
-  };
+    const body = {
+     
+      stv_name: stv_name,
+      stv_price: stv_price,
+     
 
-  const ven_id=sessionStorage.getItem('id')
-
-  const body = {
-    stv_name: stv_name,
-    stv_price: stv_price,
-    stv_vendor:{
-      ven_id:ven_id
     }
+
+    return this.httpClient.put(this.url + "/" + id, body, httpOptions)
   }
 
-  console.log("userid "+ven_id)
-  return this.httpClient.post(this.url + "/create", body, httpOptions)
-}
 
+
+  insertservice(stv_name:string, stv_price:string) {
+    // add the token in the request header
+    const httpOptions = {
+      headers: new HttpHeaders({
+        token: sessionStorage['token']
+      })
+    };
+    const ven_id = sessionStorage.getItem('id')
+
+    const body = {
+      stv_name: stv_name,
+      stv_price: stv_price,
+    
+    }
+
+    return this.httpClient.post(this.url + "/create", body, httpOptions)
+  }
 }

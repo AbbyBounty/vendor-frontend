@@ -5,88 +5,98 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class OfferService {
-  httpClient:HttpClient
-  
+  httpClient: HttpClient
 
-  url = `http://localhost:8080/vendor/offer`
-  
-  constructor(httpClient: HttpClient) { 
-    this.httpClient=httpClient
+
+  url = `http://localhost:3000/Offer`
+
+  constructor(httpClient: HttpClient) {
+    this.httpClient = httpClient
   }
-  getOffer(){
-    const userid=sessionStorage.getItem('id')
 
+  getOffers() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        token: sessionStorage['token']
+      })
+    };
 
-    return this.httpClient.get('http://localhost:8080/vendor/offerByUserid/'+userid)
-    
+    return this.httpClient.get(this.url, httpOptions)
+
   }
+
 
   getOfferDetails(id) {
     // add the token in the request header
     const httpOptions = {
-     headers: new HttpHeaders({
-      //  token: sessionStorage['token']
+      headers: new HttpHeaders({
+        token: sessionStorage['token']
 
-     })
+      })
     };
-    console.log(this.url+"/"+id)
 
-    return this.httpClient.get(this.url  + "/"+id, httpOptions)
-   }
- 
-   deleteOffer(id) {
-    // add the token in the request header
-    const httpOptions = {
-     headers: new HttpHeaders({
-      //  token: sessionStorage['token']
 
-     })
-   };
-  console.log(this.url+"/"+id)
-
-   return this.httpClient.delete('http://localhost:8080/vendor/offer' + "/"+id, httpOptions)
+    return this.httpClient.get(this.url + "/details/" + id, httpOptions)
   }
+
+
   
-   updateOffer(ofr_id:number,ofr_name: string, ofr_code: string, ofr_discount: number , ofr_validity:string) {
+  deleteOffer(id) {
+    // add the token in the request header
+    const httpOptions = {
+      headers: new HttpHeaders({
+        token: sessionStorage['token']
+
+      })
+    };
+    console.log(this.url + "/" + id)
+
+    return this.httpClient.delete(this.url + "/" + id, httpOptions)
+  }
+
+
+
+  updateOffer(id:number, ofr_name:string,ofr_code:string, ofr_discount:number,ofr_validity) {
     // add the token in the request header
 
-    console.log(ofr_id+"Offer id")
+    console.log(id + "Offer id")
     const httpOptions = {
-     headers: new HttpHeaders({
-      //  token: sessionStorage['token']
-     })
+      headers: new HttpHeaders({
+        token: sessionStorage['token']
+      })
     };
+
     const body = {
-      ofr_id:ofr_id,
+     
       ofr_name: ofr_name,
       ofr_code: ofr_code,
       ofr_discount: ofr_discount,
       ofr_validity:ofr_validity
-      
-     }
-     
-     return this.httpClient.put(this.url , body, httpOptions)
-   }
-  
-   insertOffer(ofr_name: string, ofr_code: string, ofr_discount: number,ofr_validity:string) {
+
+    }
+
+    return this.httpClient.put(this.url + "/" + id, body, httpOptions)
+  }
+
+
+
+  insertOffer(ofr_name:string,ofr_code:string, ofr_discount:number,ofr_validity) {
     // add the token in the request header
     const httpOptions = {
-     headers: new HttpHeaders({
-       // token: sessionStorage['token']
-     })
+      headers: new HttpHeaders({
+        token: sessionStorage['token']
+      })
     };
-    const ven_id=sessionStorage.getItem('id')
+    const ven_id = sessionStorage.getItem('id')
 
-  const body = {
-    ofr_name: ofr_name,
-    ofr_code: ofr_code,
-    ofr_discount: ofr_discount,
-    ofr_validity:ofr_validity,
-    ofr_vendor:{
-      ven_id:ven_id
+    const body = {
+      ofr_name: ofr_name,
+      ofr_code: ofr_code,
+      ofr_discount: ofr_discount,
+      ofr_validity:ofr_validity,
+    
     }
+
+    return this.httpClient.post(this.url + "/create", body, httpOptions)
   }
-  
-  return this.httpClient.post(this.url + "/create", body, httpOptions)
-}
 }
