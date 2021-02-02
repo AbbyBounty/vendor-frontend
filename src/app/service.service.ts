@@ -61,7 +61,6 @@ export class ServiceService {
 
     console.log(id + "service id")
     const httpOptions = {
-<<<<<<< Updated upstream
       headers: new HttpHeaders({
         token: sessionStorage['token']
       })
@@ -73,38 +72,6 @@ export class ServiceService {
       stv_price: stv_price,
      
 
-=======
-     headers: new HttpHeaders({
-      //  token: sessionStorage['token']
-     })
-   };
-   
-   const body = {
-    stv_id:stv_id,
-    stv_name: stv_name,
-    stv_price: stv_price,
-   }
-   
-   return this.httpClient.put(this.url+"/"+stv_id , body, httpOptions)
- }
-
- 
- insertService(stv_name: string, stv_price: number) {
-   // add the token in the request header
-   const httpOptions = {
-    headers: new HttpHeaders({
-      // token: sessionStorage['token']
-    })
-  };
-
-  const ven_id=sessionStorage.getItem('id')
-
-  const body = {
-    stv_name: stv_name,
-    stv_price: stv_price,
-    stv_vendor:{
-      ven_id:ven_id
->>>>>>> Stashed changes
     }
 
     return this.httpClient.put(this.url + "/" + id, body, httpOptions)
