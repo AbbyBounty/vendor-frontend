@@ -16,6 +16,8 @@ import { ServiceAddComponent } from 'app/service/service-add/service-add.compone
 import { OrderListComponent } from 'app/order/order-list/order-list.component';
 import { CustomerComponent } from 'app/customer/customer.component';
 import { OrderHistoryComponent } from 'app/order/order-history/order-history.component';
+import { MechanicListComponent } from 'app/mechanic/mechanic-list/mechanic-list.component';
+import { MechanicAddComponent } from 'app/mechanic/mechanic-add/mechanic-add.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -27,11 +29,12 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'services',        component: ServiceListComponent },
-    { path: 'service-add',        component: ServiceAddComponent },
+    { path: 'service-add', component: ServiceAddComponent },
+    { path: 'mechanic-add',        component: MechanicAddComponent },
     { path: 'offer-add',        component: OfferAddComponent },
     { path: 'offers',        component: OfferListComponent },
     { path: 'order-list',        component: OrderListComponent },
     { path: 'customer',        component: CustomerComponent },
-    { path: 'order-history',        component: OrderHistoryComponent },
-    { path: 'mechanics',        component: MechanicListComponent },
+    { path: 'order-history', component: OrderHistoryComponent },
+    { path: 'mechanics',component: MechanicListComponent },
 ];

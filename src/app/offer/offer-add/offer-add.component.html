@@ -9,26 +9,32 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="">Offer Name</label>
-                        <input [(ngModel)]="serviceName" type="text" class="form-control">
+                        <input [(ngModel)]="ofr_name" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Offer Code</label>
+                        <input [(ngModel)]="ofr_code" type="text" class="form-control">
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="">Discount</label>
-                        <input [(ngModel)]="discount" type="number" class="form-control">
+                        <input [(ngModel)]="ofr_discount" type="number" class="form-control">
                     </div>
                 </div>
 
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="">Validity</label>
-                    <input [(ngModel)]="Validity" type="date" class="form-control">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="">Validity</label>
+                        <input [(ngModel)]="ofr_validity" required type="date" class="form-control">
+                    </div>
                 </div>
             </div>
-        </div>
 
-    </div>
+        </div>
 
 
 

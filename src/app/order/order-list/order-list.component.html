@@ -51,11 +51,10 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">Sr.No</th>
                                 <th scope="col">Order No</th>
                                 <th scope="col">Customer Name</th>
-                                <th scope="col">Offer</th>
-                                <th scope="col">Discount</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Time</th>
                                 <th scope="col">Vehicle No</th>
                                 <th scope="col">Amount</th>
                                 <th>Active</th>
@@ -66,12 +65,11 @@
                         <tbody>
                             <tr *ngFor="let order of orders; let index=index">
                                 <td>{{index+1}}</td>
-                                <td>{{order['Order No']}}</td>
                                 <td class="text-info" routerLink="/customer">
-                                    {{order['Customer Name']}}</td>
-                                <td>{{order['Offer']}} </td>
-                                <td>{{order['Discount']}} </td>
-                                <td>{{order['Vehicle No']}} </td>
+                                    {{order['u_first_name']}} {{order['u_last_name']}} </td>
+                                <td>{{order['o_date']}} </td>
+                                <td>{{order['o_start_time']}} </td>
+                                <td>{{order['o_vehicle_reg_no']}} </td>
                                 <td>{{order['Amount']}} </td>
                                 <td>{{order['active']}}</td>
                                 <td>

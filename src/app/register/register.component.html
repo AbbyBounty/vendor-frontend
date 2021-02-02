@@ -1,0 +1,49 @@
+<h1 style="text-align: center;">Signup</h1>
+
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <div class="form-group">
+
+        <div class="form-group">
+            <label for="">Shop Name</label>
+            <input [(ngModel)]="vendor.ven_shop_name" type="text" class="form-control">
+          </div>
+      <label for="">First Name</label>
+      <input [(ngModel)]="vendor.ven_first_name" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="">Last Name</label>
+      <input [(ngModel)]="vendor.ven_last_name" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="">Email</label>
+      <input [(ngModel)]="vendor.ven_email" type="email" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="">Password</label>
+        <input [(ngModel)]="vendor.ven_password" type="password" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="">Proof</label>
+        <input [(ngModel)]="vendor.ven_proof" type="password" class="form-control">
+      </div>
+    <div class="form-group">
+      <label for="">Address</label>
+      <input [(ngModel)]="vendor.ven_address" type="text" class="form-control">
+    </div>
+   
+    <div class="form-group">
+      <label for="">Mobile</label>
+      <input [(ngModel)]="vendor.ven_mobile" type="text" class="form-control">
+    </div>
+
+    
+   
+    <div class="form-group">
+        <button (click)="onSignup()" class="btn btn-success">Sign Up</button>
+        <button (click)="onCancel()" class="btn btn-danger" style="margin-left: 10px;">Cancel</button>
+    </div>
+  </div>
+</div>

@@ -2,6 +2,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from "ngx-toastr";
+import { FormsModule } from '@angular/forms';
 
 import { SidebarModule } from './sidebar/sidebar.module';
 import { FooterModule } from './shared/footer/footer.module';
@@ -21,7 +22,10 @@ import { OfferListComponent } from './offer/offer-list/offer-list.component';
 import { OrderListComponent } from './order/order-list/order-list.component';
 import { CustomerComponent } from './customer/customer.component';
 import { OrderHistoryComponent } from './order/order-history/order-history.component';
+import { LoginComponent } from './login/login.component';
 
+import { HttpClientModule }from '@angular/common/http';
+import { RegisterComponent } from './register/register.component'
 
 @NgModule({
   declarations: [
@@ -35,10 +39,13 @@ import { OrderHistoryComponent } from './order/order-history/order-history.compo
     OfferListComponent,
     OrderListComponent,
     CustomerComponent,
-    OrderHistoryComponent
+    OrderHistoryComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserAnimationsModule,
+    HttpClientModule,
     RouterModule.forRoot(AppRoutes,{
       useHash: true
     }),
@@ -46,7 +53,9 @@ import { OrderHistoryComponent } from './order/order-history/order-history.compo
     NavbarModule,
     ToastrModule.forRoot(),
     FooterModule,
-    FixedPluginModule
+    FixedPluginModule,
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
