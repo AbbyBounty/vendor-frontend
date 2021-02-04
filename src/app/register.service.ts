@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 })
 export class RegisterService {
 
-  url=""
+  url="http://localhost:3000/vendor"
 
 
   constructor(
@@ -28,6 +28,6 @@ export class RegisterService {
       "ven_shop_name":userObj.ven_shop_name
     }
 
-    return this.httpClient.post(this.url+"/register" , body)
+    return this.httpClient.post(this.url+"/signup" , body)
   }
 }
