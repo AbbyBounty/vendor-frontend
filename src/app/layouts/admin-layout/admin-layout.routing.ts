@@ -16,7 +16,6 @@ import { ServiceAddComponent } from 'app/service/service-add/service-add.compone
 import { OrderListComponent } from 'app/order/order-list/order-list.component';
 import { CustomerComponent } from 'app/customer/customer.component';
 import { OrderHistoryComponent } from 'app/order/order-history/order-history.component';
-
 import { MechanicAddComponent } from 'app/mechanic/mechanic-add/mechanic-add.component';
 
 export const AdminLayoutRoutes: Routes = [

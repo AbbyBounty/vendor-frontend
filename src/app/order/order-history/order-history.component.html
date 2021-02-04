@@ -5,11 +5,11 @@
             <div class="card" *ngIf="orderHistories.length>0">
               
                 <div class="card-body">
-
+                    <h4 class="card-title"> Orders</h4>
                     <div class="table table-striped">
-                        <thead >
+                        <thead class=" text-primary">
                             <tr >
-                                <th>Sr. No.</th>
+                                <!-- <th>Sr. No.</th> -->
                                 <th>Order Id</th>
                                 <th>Customer Name</th>
                                 <th>Date</th>
@@ -21,11 +21,17 @@
 
                         <tbody >
                          <tr *ngFor="let orderHistory of orderHistories; let index=index">
+                           
                             <td>{{index+1}}</td>
-                            <td>{{orderHistory['Order Id']}}</td>
-                            <td>{{orderHistory['Customer Name']}}</td>
-                            <td>{{orderHistory['Date']}}</td>
-                            <td>{{orderHistory['Vehicle Number']}}</td>
+                        
+                            <td>{{orderHistory['o_date']}}</td>
+
+                            <td>{{orderHistory['o_start_time']}}</td>
+
+                            <td>{{orderHistory['o_vehicle_reg_no']}}</td>
+
+                            <!-- <td>{{orderHistory['Vehicle Number']}}</td> -->
+                            
                             <td>{{orderHistory['Amount']}}</td>
                           
                          </tr>
