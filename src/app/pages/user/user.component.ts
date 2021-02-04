@@ -9,74 +9,85 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: 'user.component.html'
 })
 
-export class UserComponent implements OnInit{
+export class UserComponent implements OnInit {
 
 
-   user:any=[]
+    user: any = []
   
-   
-   ven_first_name=""
-   ven_last_name=""
-   ven_email=""
-   ven_mobile="" 
-   ven_address=""
+    ven_id=null
+    ven_first_name = ""
+    ven_last_name = ""
+    ven_email = ""
+    ven_mobile = ""
+    ven_address = ""
+    ven_shop_name=""
   
 
-   constructor(private router: Router, private userService:UserService,private toastr: ToastrService ) { }
+    constructor(private router: Router, private userService: UserService, private toastr: ToastrService) { }
 
 
-    ngOnInit(){
+    ngOnInit() {
         this.onload()
 
     }
 
 
-    onload(){
+    onload() {
 
-        this.userService.getUser().subscribe(response=>{
-            this.user=response
+        this.userService.getUser().subscribe(response => {
+            this.user = response
             // console.log(response)
-     })
+            if (this.user != null) {
+                this.ven_id=this.user['ven_id']
+                this.ven_first_name = this.user['ven_first_name']
+                this.ven_last_name = this.user['ven_last_name']
+                this.ven_email = this.user['ven_email']
+                this.ven_mobile = this.user['ven_mobile']
+                this.ven_address = this.user['ven_address']
+                this.ven_shop_name = this.user['ven_shop_name']
+            }
+        })
 
     }
 
 
-  //   onUpdate(){
+    onUpdate() {
         
         
-  //  console.log(this.user['ven_first_name'])
+        console.log(this.user['ven_first_name'])
    
-  //     // edit
+        //     // edit
   
-  //     this.userService
-  //       .updateUser(this.user['ven_first_name'], this.user['ven_last_name'],this.user['ven_email'],this.user['ven_mobile'], this.user['ven_address'])
-  //       .subscribe(response => {
+           this.userService
+              .updateUser(this.ven_id, this.ven_first_name, this.ven_last_name, this.ven_email,this.ven_mobile, this.ven_address, this.ven_shop_name)
+              .subscribe(response => {
          
-  //  console.log(this.user['ven_first_name'])
-  //         console.log(this.ven_first_name)
-  //         this.ven_first_name=this.user['ven_first_name']
-  //         this.ven_last_name=this.user['ven_last_name']
-  //         this.ven_email=this.user['ven_email']
-  //         this.ven_mobile=this.user['ven_mobile']
-  //         this.ven_address=this.user['ven_address']
+        //  console.log(this.user['ven_first_name'])
+        //         console.log(this.ven_first_name)
+        //         this.ven_first_name=this.user['ven_first_name']
+        //         this.ven_last_name=this.user['ven_last_name']
+        //         this.ven_email=this.user['ven_email']
+        //         this.ven_mobile=this.user['ven_mobile']
+        //         this.ven_address=this.user['ven_address']
          
 
-  //       //   console.log(this.vehicle['v_id']+vhicle id update)
+        //       //   console.log(this.vehicle['v_id']+vhicle id update)
 
-  //         // if (response['status'] == 'success') {
+        //         // if (response['status'] == 'success') {
            
          
              
-  //           this.router.navigate(['/user'])
-  //         // }
-  //       })
-  //       this.toastr.success(' updated succesfully ','user',{
-  //           positionClass:'toast-top-left',
-  //           closeButton:true,
-  //           progressAnimation:'decreasing',
-  //           titleClass:'toast-title'
-  //         })
+        //           this.router.navigate(['/user'])
+        //         // }
+              })
+        //       this.toastr.success(' updated succesfully ','user',{
+        //           positionClass:'toast-top-left',
+        //           closeButton:true,
+        //           progressAnimation:'decreasing',
+        //           titleClass:'toast-title'
+        //         })
      
-  //       console.log(`update profile`)
-  //   }
+        //       console.log(`update profile`)
+        
+    }
 }

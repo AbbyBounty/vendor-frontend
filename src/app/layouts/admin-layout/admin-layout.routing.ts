@@ -17,6 +17,8 @@ import { CustomerComponent } from 'app/customer/customer.component';
 import { OrderHistoryComponent } from 'app/order/order-history/order-history.component';
 import { MechanicListComponent } from 'app/mechanic/mechanic-list/mechanic-list.component';
 import { MechanicAddComponent } from 'app/mechanic/mechanic-add/mechanic-add.component';
+import { RegisterComponent } from 'app/register/register.component';
+import { LoginComponent } from 'app/login/login.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -35,5 +37,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'order-list',        component: OrderListComponent },
     { path: 'customer',        component: CustomerComponent },
     { path: 'order-history', component: OrderHistoryComponent },
-    { path: 'mechanics',component: MechanicListComponent },
+    { path: 'mechanics', component: MechanicListComponent },
+    { path: 'register', component: RegisterComponent },
+    { path: 'login', component: LoginComponent },
+    
 ];

@@ -8,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerComponent implements OnInit {
 
-
+  ven_id = null
+  ven_address = " "
+  ven_email = " "
+  ven_first_name = " "
+  ven_last_name = " "
+  ven_mobile = " "
+  ven_password = " "
+  ven_proof = " "
+  ven_shop_name = " "
+  
   customers=[
-
     {"Name":"steve jobs","Address":"USA","Email":"steve@gmail.com","Contact No":"898989797" },
     {"Name":"steve jobs","Address":"USA","Email":"steve@gmail.com","Contact No":"898989797" },
     {"Name":"steve jobs","Address":"USA","Email":"steve@gmail.com","Contact No":"898989797" },
