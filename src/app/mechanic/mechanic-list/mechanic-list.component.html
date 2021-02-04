@@ -1,1 +1,38 @@
-<p>mechanic-list works!</p>
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            <button (click)="addmechanic()" class="btn btn-success btn-sm float-right">Add</button>
+            <h4 class="card-title"> My mechanics</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class=" text-primary">
+                        <th>
+                            Sr.No
+                        </th>
+                        <th> Full Name</th>
+                        <th> Mobile Number</th>
+                        <th class="text-center">
+                            Action
+                        </th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let mechanic of mechanics; let index=index;">
+
+                            <td>{{index+1}}</td>
+                            <td>{{mechanic.mech_first_name}} {{mechanic.mech_last_name}}</td>
+                            <td>{{mechanic.mech_mobile}}</td>
+
+                            <td>
+                                <button (click)="onEdit(mechanic)" style="margin-left: 10px;" class="btn btn-warning btn-sm">Edit</button>
+                                <button (click)="onDelete(mechanic)" style="margin-left: 10px;" class="btn btn-danger btn-sm">Delete</button>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
