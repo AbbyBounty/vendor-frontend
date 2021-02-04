@@ -1,3 +1,4 @@
+import { UserService } from './user.service';
 import { LoginComponent } from './login/login.component';
 import { Routes } from '@angular/router';
 
@@ -12,18 +13,19 @@ import { RegisterComponent } from './register/register.component';
 
 
 export const AppRoutes: Routes = [
-  {
-    path: 'dashboard',
+  // {
+  //   path: 'dashboard',
    
-    pathMatch: 'full',
-    component:AdminLayoutComponent,
-    children: [
-      {
-        path: '',
-        loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
-        // loadChildren: './login/LoginComponent'
-      }]
-  },
+  //   pathMatch: 'full',
+  //   component:AdminLayoutComponent,
+  //   children: [
+  //     {
+  //       path: '',
+  //       loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
+  //       // loadChildren: './login/LoginComponent'
+  //     }],
+  //     canActivate:[UserService]
+  // },
   // {
   //   path: 'login',
   //   redirectTo: '',
@@ -32,7 +34,9 @@ export const AppRoutes: Routes = [
 
   {
     path: '',
-    component: LoginComponent
+    component: LoginComponent,
+    // canActivate:[UserService]
+
     
   },
   {
@@ -53,7 +57,9 @@ export const AppRoutes: Routes = [
         path: '',
         loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
        
-      }]
+      }],
+      canActivate:[UserService]
+
   },
   {
     path: '**',
