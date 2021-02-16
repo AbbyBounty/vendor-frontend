@@ -11,7 +11,7 @@ import { MechanicService } from 'app/mechanic.service';
 export class MechanicAddComponent implements OnInit {
   mechanic = null
 
-  mech_first_name = " "
+   mech_first_name = " "
   mech_last_name = " "
   mech_mobile = " "
 

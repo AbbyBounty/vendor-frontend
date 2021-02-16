@@ -1,3 +1,4 @@
+import { Component } from '@angular/core';
 import { UserService } from './user.service';
 import { LoginComponent } from './login/login.component';
 import { Routes } from '@angular/router';
@@ -65,4 +66,14 @@ export const AppRoutes: Routes = [
     path: '**',
     redirectTo: 'login'
   }
+]
+
+
+const routes=[
+  {
+    path:"admin",
+    Component:AdminLayoutComponent,
+    
+  },
+  {}
 ]
